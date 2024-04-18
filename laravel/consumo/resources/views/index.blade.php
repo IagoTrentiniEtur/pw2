@@ -15,6 +15,7 @@
             <input type="number" name="distancia"><br/>
             <label id="lconsumocombustivel" for="consumocombustivel">Consumo de combustível do veículo (km/l)</label>
             <input type="number" name="consumocombustivel"><br/>
+            <button type="submit">Enviar</button>
         </form>
     </div>
 @endsection

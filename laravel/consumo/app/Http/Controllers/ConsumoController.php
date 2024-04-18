@@ -4,18 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Consumo;
 
 class ConsumoController extends Controller
 {
     public function index() {
-        return view('consumo');
+        return view('index');
     }
 
     public function gasto() {
-        $consumo = new consumo();
+        $Consumo = new Consumo();
 
-        $combustivel = $consumo->combustivel();
-        $valor = $consumo->calcular();
+        $combustivel = $Consumo->combustivel();
+        $valor = $Consumo->calcular();
 
         return view('resultado',['combustivel'=>$combustivel,'valor'=>$valor]);
     }

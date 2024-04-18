@@ -11,9 +11,12 @@ class ConsumoController extends Controller
         return view('consumo');
     }
 
-    public function resultado() {
-        $consumo = new Consumo();
-        $resultadoconsumo = $consumo->consumo();
-        return view('resultado');
+    public function gasto() {
+        $CalculoDeCombustivel = new CalculoDeCombustivel();
+
+        $combustivel = $CalculoDeCombustivel->combustivel();
+        $valor = $CalculoDeCombustivel->calcular();
+
+        return view('resultado',['combustivel'=>$combustivel,'valor'=>$valor]);
     }
 }

@@ -9,13 +9,17 @@ class consumo extends Model
 {
     use HasFactory;
 
-    function calculoconsumo($distancia, $consumo_combustivel, $preco_litro) {
-        return(($distancia / $consumo_combustivel) * $preco_litro);
+    public function combustivel() {
+        return $_GET['combustivel'];
     }
 
-    public function consumo() {
-        $valores["combustivel"] = $_GET["combustivel"];
-        $valores["consumo"] = $this->calculo_consumo($_GET["distancia"],$_GET["consumocombustivel"],$_GET["precolitro"]);
-        return $valores;
+    public function calcular() {
+        $valorcombustivel = $_GET['valorcombustivel'];
+        $distancia = $_GET['distancia'];
+        $autonomia = $_GET['autonomia'];
+
+        $consumoGasolina = round((($distancia / $autonomia) * $valorcombustivel),2);
+
+        return $consumoGasolina;
     }
 }

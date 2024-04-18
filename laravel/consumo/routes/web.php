@@ -3,5 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 use App\http\Controllers\ConsumoController;
-Route::get('/',[ConsumoController::class, 'index']);
-Route::get('/resultado',[ConsumoController::class, 'resultado']);
+Route::get('/', [CombustivelController::class, 'index']);
+
+Route::get('/gasto', [CombustivelController::class, 'gasto']);
